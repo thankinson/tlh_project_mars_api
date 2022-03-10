@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { react, useState, useEffect } from "react";
 const { REACT_APP_API_KEY } = process.env;
 // mars rover header
 
@@ -17,10 +17,10 @@ const Content = () => {
     // fetching the api
     const MarsCollect = async () =>{
         try {
-        const response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${marsRover}/photos?sol=${marsSol}&api_key=${REACT_APP_API_KEY}`);
-        const marsData = await response.json();
-        console.log(marsData)
-        setMars(marsData)
+        const response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${marsRover}/photos?sol=${marsSol}&api_key=${REACT_APP_API_KEY}`); // api call
+        const marsData = await response.json(); // this is required
+        console.log(marsData) // this isnt
+        setMars(marsData) // this updates your mars usestate
         // setMarsImg(marsImg.img_src)
     } 
         // catch the error 
@@ -34,16 +34,18 @@ const Content = () => {
     //     MarsCollect()
     // }, [])
 
+    // this cycles to next image in the api array
     const nextMarsImage = () =>{
         let i = marsPhoto + 1
         setMarsPhoto(i)
     }
+    // this cycles to previosue image in array
     const previouseMarsImage = () =>{
         let i = marsPhoto - 1
 
         setMarsPhoto(i)
     }
-
+    // both need soem work 
 
     return( 
         <div id="div-maincontent">
@@ -59,7 +61,7 @@ const Content = () => {
                                 <div id="div-rover-choice">
 
                                     <div className="rover-tag-spacing">
-                                        <h2 className="rover-tag" onClick={() =>setMarsRover("curiosity")}>Curiosity</h2>
+                                        <h2 className="rover-tag" onClick={() =>setMarsRover("curiosity")}>Curiosity</h2> 
                                     </div>
                                     <div className="rover-tag-spacing">
                                         <h2 className="rover-tag" onClick={() =>setMarsRover("opportunity")}>Opportunity</h2>
