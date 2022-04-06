@@ -41,9 +41,13 @@ const Content = () => {
     }
     // this cycles to previosue image in array
     const previouseMarsImage = () =>{
-        let i = marsPhoto - 1
-
-        setMarsPhoto(i)
+        if (marsPhoto > 0){
+            let i = marsPhoto - 1
+            setMarsPhoto(i)
+        } else {
+            alert("Cannot go back")
+        }
+        
     }
     // both need soem work 
 
@@ -81,6 +85,9 @@ const Content = () => {
                                     <div><h3>Rover : {marsRover}</h3></div>
                                     <div><h3>Mars Sol : {marsSol}</h3></div>
                                 </div>
+                                {/* <div>
+                                    <p>Number of Photos taken by Rover: {marsRover} on Mars Sol: {marsSol} Photos: {mars.photos.length}</p>
+                                </div> */}
                             </div>
                     </div>
 

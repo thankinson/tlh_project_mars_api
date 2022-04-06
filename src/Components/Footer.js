@@ -4,7 +4,7 @@ import { React} from "react";
 
 const Footer = () => {
     return( 
-        <div id="div-footer"><h4>Tom Hankinson - Personal Project - Mars Rover images from API</h4></div>
+        <div id="div-footer"><h4>Tom Hankinson - Personal Project - Mars Rover images from <a href="https://api.nasa.gov/">Nasa API</a></h4></div>
     )
 }
 
